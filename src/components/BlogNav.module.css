@@ -1,0 +1,22 @@
+.blog-nav {
+  display: flex;
+  justify-content: space-between;
+}
+
+.blog-nav a {
+  display: inline-block;
+  background-color: lightcyan;
+  padding: 0.25em;
+  max-width: 20ch;
+}
+
+.blog-nav p {
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  overflow: hidden;
+}
+
+.next-link {
+  margin-left: auto;
+  text-align: right;
+}

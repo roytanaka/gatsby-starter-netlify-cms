@@ -8,7 +8,13 @@ exports.createPages = ({ actions, graphql }) => {
 
   return graphql(`
     {
-      allMarkdownRemark(limit: 1000) {
+      allMarkdownRemark(
+        limit: 100
+        sort: {
+          order: [DESC, ASC]
+          fields: [frontmatter___templateKey, frontmatter___date]
+        }
+      ) {
         edges {
           node {
             id
@@ -17,6 +23,24 @@ exports.createPages = ({ actions, graphql }) => {
             }
             frontmatter {
               tags
+              templateKey
+            }
+          }
+          next {
+            frontmatter {
+              title
+              templateKey
+            }
+            fields {
+              slug
+            }
+          }
+          previous {
+            fields {
+              slug
+            }
+            frontmatter {
+              title
               templateKey
             }
           }
@@ -31,17 +55,22 @@ exports.createPages = ({ actions, graphql }) => {
 
     const posts = result.data.allMarkdownRemark.edges
 
-    posts.forEach((edge) => {
-      const id = edge.node.id
+    posts.forEach(({ node, next, previous }, index) => {
+      const id = node.id
       createPage({
-        path: edge.node.fields.slug,
-        tags: edge.node.frontmatter.tags,
+        path: node.fields.slug,
+        tags: node.frontmatter.tags,
         component: path.resolve(
-          `src/templates/${String(edge.node.frontmatter.templateKey)}.js`
+          `src/templates/${String(node.frontmatter.templateKey)}.js`
         ),
         // additional data can be passed via context
         context: {
           id,
+          next: next?.frontmatter?.templateKey === 'blog-post' ? next : null,
+          previous:
+            previous?.frontmatter?.templateKey === 'blog-post'
+              ? previous
+              : null,
         },
       })
     })
