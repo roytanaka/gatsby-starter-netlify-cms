@@ -1,11 +1,11 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { kebabCase } from 'lodash'
-import { Helmet } from 'react-helmet'
-import { graphql, Link } from 'gatsby'
-import Layout from '../components/Layout'
-import Content, { HTMLContent } from '../components/Content'
-import BlogNav from '../components/BlogNav'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { kebabCase } from 'lodash';
+import { Helmet } from 'react-helmet';
+import { graphql, Link } from 'gatsby';
+import Layout from '../components/Layout';
+import Content, { HTMLContent } from '../components/Content';
+import BlogNav from '../components/BlogNav';
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
@@ -18,10 +18,10 @@ export const BlogPostTemplate = ({
   next,
   previous,
 }) => {
-  console.log('🚀 ~ file: blog-post.js ~ line 20 ~ helmet', helmet)
-  console.log('🚀 ~ file: blog-post.js ~ line 20 ~ previous', previous)
-  console.log('🚀 ~ file: blog-post.js ~ line 20 ~ next', next)
-  const PostContent = contentComponent || Content
+  console.log('🚀 ~ file: blog-post.js ~ line 20 ~ helmet', helmet);
+  console.log('🚀 ~ file: blog-post.js ~ line 20 ~ previous', previous);
+  console.log('🚀 ~ file: blog-post.js ~ line 20 ~ next', next);
+  const PostContent = contentComponent || Content;
 
   return (
     <section className="section">
@@ -51,8 +51,8 @@ export const BlogPostTemplate = ({
         </div>
       </div>
     </section>
-  )
-}
+  );
+};
 
 BlogPostTemplate.propTypes = {
   content: PropTypes.node.isRequired,
@@ -62,10 +62,10 @@ BlogPostTemplate.propTypes = {
   helmet: PropTypes.object,
   next: PropTypes.object,
   previous: PropTypes.object,
-}
+};
 
 const BlogPost = ({ data, pageContext }) => {
-  const { markdownRemark: post } = data
+  const { markdownRemark: post } = data;
 
   return (
     <Layout>
@@ -88,16 +88,16 @@ const BlogPost = ({ data, pageContext }) => {
         previous={pageContext.previous}
       />
     </Layout>
-  )
-}
+  );
+};
 
 BlogPost.propTypes = {
   data: PropTypes.shape({
     markdownRemark: PropTypes.object,
   }),
-}
+};
 
-export default BlogPost
+export default BlogPost;
 
 export const pageQuery = graphql`
   query BlogPostByID($id: String!) {
@@ -112,4 +112,4 @@ export const pageQuery = graphql`
       }
     }
   }
-`
+`;

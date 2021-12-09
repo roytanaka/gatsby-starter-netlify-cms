@@ -1,6 +1,6 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { GatsbyImage } from 'gatsby-plugin-image'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { GatsbyImage } from 'gatsby-plugin-image';
 
 export default function FullWidthImage(props) {
   const {
@@ -8,8 +8,8 @@ export default function FullWidthImage(props) {
     img,
     title,
     subheading,
-    imgPosition = 'top left',
-  } = props
+    imgPosition = 'center',
+  } = props;
 
   return (
     <React.Fragment>
@@ -102,7 +102,7 @@ export default function FullWidthImage(props) {
         )}
       </div>
     </React.Fragment>
-  )
+  );
 }
 
 FullWidthImage.propTypes = {
@@ -110,4 +110,4 @@ FullWidthImage.propTypes = {
   title: PropTypes.string,
   height: PropTypes.number,
   subheading: PropTypes.string,
-}
+};

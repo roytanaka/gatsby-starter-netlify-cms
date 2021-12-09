@@ -1,7 +1,7 @@
-import React from 'react'
-import { Link } from 'gatsby'
+import React from 'react';
+import { Link } from 'gatsby';
 
-import { blogNav, nextLink } from './BlogNav.module.css'
+import { blogNav, nextLink } from './BlogNav.module.css';
 
 const BlogNav = ({ previous, next }) => {
   return (
@@ -23,7 +23,7 @@ const BlogNav = ({ previous, next }) => {
         </Link>
       )}
     </nav>
-  )
-}
+  );
+};
 
-export default BlogNav
+export default BlogNav;

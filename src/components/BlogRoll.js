@@ -1,12 +1,12 @@
-import React from 'react'
-import PropTypes from 'prop-types'
-import { Link, graphql, StaticQuery } from 'gatsby'
-import PreviewCompatibleImage from './PreviewCompatibleImage'
+import React from 'react';
+import PropTypes from 'prop-types';
+import { Link, graphql, StaticQuery } from 'gatsby';
+import PreviewCompatibleImage from './PreviewCompatibleImage';
 
 class BlogRollTemplate extends React.Component {
   render() {
-    const { data } = this.props
-    const { edges: posts } = data.allMarkdownRemark
+    const { data } = this.props;
+    const { edges: posts } = data.allMarkdownRemark;
 
     return (
       <div className="columns is-multiline">
@@ -60,7 +60,7 @@ class BlogRollTemplate extends React.Component {
             </div>
           ))}
       </div>
-    )
+    );
   }
 }
 
@@ -70,7 +70,7 @@ BlogRoll.propTypes = {
       edges: PropTypes.array,
     }),
   }),
-}
+};
 
 export default function BlogRoll() {
   return (
@@ -110,5 +110,5 @@ export default function BlogRoll() {
       `}
       render={(data, count) => <BlogRollTemplate data={data} count={count} />}
     />
-  )
+  );
 }
