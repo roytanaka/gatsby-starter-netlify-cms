@@ -1,7 +1,7 @@
 ---
 templateKey: index-page
 title: Come see what's brewing
-image: /img/img1603126074.jpg
+image: /img/products-grid1.jpg
 heading: The best coffee in town
 subheading: Support sustainable farming while enjoying a cup
 mainpitch:
