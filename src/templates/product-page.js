@@ -27,7 +27,7 @@ export const ProductPageTemplate = ({
   return (
     <div className="content">
       <FullWidthImage img={heroImage} title={title} />
-      <section className="section section--gradient">
+      <section className="container">
         <div className="container">
           <div className="section">
             <div className="columns">
@@ -77,7 +77,7 @@ export const ProductPageTemplate = ({
         </div>
       </section>
       <FullWidthImage img={fullWidthImage} imgPosition={'bottom'} />
-      <section className="section section--gradient">
+      <section className="container">
         <div className="container">
           <div className="section">
             <div className="columns">

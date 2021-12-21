@@ -4,7 +4,7 @@ import logo from '../img/logo.svg';
 import tw, { styled } from 'twin.macro';
 
 const Nav = styled.nav`
-  ${tw`max-w-4xl mx-auto flex items-center flex-col md:(flex-row)`};
+  ${tw`max-w-5xl mx-auto flex items-center flex-col md:(flex-row)`};
 `;
 
 const NavItems = styled.div(({ showMobile }) => [

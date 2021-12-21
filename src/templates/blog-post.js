@@ -6,6 +6,17 @@ import { graphql, Link } from 'gatsby';
 import Layout from '../components/Layout';
 import Content, { HTMLContent } from '../components/Content';
 import BlogNav from '../components/BlogNav';
+import tw, { styled } from 'twin.macro';
+
+const TagList = styled.ul`
+  ${tw`list-none flex space-x-3`}
+  > li.tag {
+    ${tw`before:hidden p-0`}
+    a {
+      ${tw`py-1 px-3 bg-purple-300 rounded-full text-sm no-underline hover:bg-purple-200 active:bg-purple-300`}
+    }
+  }
+`;
 
 // eslint-disable-next-line
 export const BlogPostTemplate = ({
@@ -24,7 +35,7 @@ export const BlogPostTemplate = ({
   const PostContent = contentComponent || Content;
 
   return (
-    <section className="section">
+    <section className="container">
       {helmet || ''}
       <div className="container content">
         <div className="columns">
@@ -38,13 +49,13 @@ export const BlogPostTemplate = ({
             {tags && tags.length ? (
               <div style={{ marginTop: `4rem` }}>
                 <h4>Tags</h4>
-                <ul className="taglist">
+                <TagList>
                   {tags.map((tag) => (
-                    <li key={tag + `tag`}>
+                    <li className="tag" key={tag + `tag`}>
                       <Link to={`/tags/${kebabCase(tag)}/`}>{tag}</Link>
                     </li>
                   ))}
-                </ul>
+                </TagList>
               </div>
             ) : null}
           </div>
